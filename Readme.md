@@ -13,7 +13,9 @@ I didn't find the boot option especially helpful. Enabling kvm is probably a goo
 Additionally it is nice to have ssh access, and to mount your local directory so that you can work on the same files inside and outside the emulated device.
 This all results in the following command:
 
+```
 qemu-system-x86_64 --smp 2 ./qemu-x86_64.qcow2 --enable-kvm -vga virtio -m 3G -enable-kvm -device e1000,netdev=net0 -netdev user,id=net0,hostfwd=tcp::5555-:22 -usb -virtfs local,path=$PWD,mount_tag=host0,security_model=passthrough,id=host0
+```
 
 Once you've run the above and logged in (pw 123456), you can ssh (from a new terminal console) to the phone with:
 
